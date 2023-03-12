@@ -1,8 +1,12 @@
 export default function returnArray({ special }) {
+  const arr = [];
   special.forEach((obj) => {
-    if (obj.description === undefined) {
-      /* eslint-disable */     obj.description = 'Описание недоступно';
-    }
+    const {
+      id, name, description = 'Описание недоступно', icon,
+    } = obj;
+    arr.push({
+      id, name, icon, description,
+    });
   });
-  return special;
+  return arr;
 }
